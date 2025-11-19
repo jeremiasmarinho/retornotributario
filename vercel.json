@@ -1,11 +1,6 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "node vercel-build.js",
   "outputDirectory": "dist",
   "framework": "other",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+  "installCommand": "npm install"
 }
