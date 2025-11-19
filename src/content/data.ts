@@ -167,7 +167,8 @@ export const testimonials = [
     name: "Luciana Bernardes",
     role: "Diretora Financeira",
     company: "Grupo Vanguarda",
-    avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80",
+    avatar:
+      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80",
   },
   {
     quote:
@@ -175,7 +176,8 @@ export const testimonials = [
     name: "Ricardo Monteiro",
     role: "CFO",
     company: "Hospitalis Saúde Integrada",
-    avatar: "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=400&q=80",
+    avatar:
+      "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=400&q=80",
   },
   {
     quote:
@@ -183,7 +185,8 @@ export const testimonials = [
     name: "Bianca Luz",
     role: "Head de Planejamento",
     company: "Atlas Logística",
-    avatar: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=400&q=80",
+    avatar:
+      "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=400&q=80",
   },
 ] as const;
 

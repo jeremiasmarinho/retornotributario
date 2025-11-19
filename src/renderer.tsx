@@ -11,7 +11,7 @@ export const renderer = jsxRenderer(({ children, title }) => {
         </title>
         <meta
           name="description"
-          content="Recuperação de créditos tributários para empresas do Lucro Real. Reduzindo custos, aumentando margens e devolvendo o que é seu por direito."
+          content="Recuperação de créditos tributários para empresas. Reduzindo custos, aumentando margens e devolvendo o que é seu por direito."
         />
         <link href="/static/style.css" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,7 +25,7 @@ export const renderer = jsxRenderer(({ children, title }) => {
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         />
       </head>
-      <body class="has-noise">{children}</body>
+      <body>{children}</body>
     </html>
   );
 });

@@ -3,6 +3,15 @@
 document.addEventListener('DOMContentLoaded', () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  const syncMobileState = () => {
+    const isMobileViewport = window.innerWidth <= 768;
+    const enableAnimatedMobile = isMobileViewport && !prefersReducedMotion;
+    document.body.classList.toggle('is-mobile', enableAnimatedMobile);
+    document.body.classList.toggle('is-mobile-static', isMobileViewport && prefersReducedMotion);
+  };
+
+  syncMobileState();
+
   // Smooth scroll for navigation links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (event) => {
@@ -166,15 +175,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  window.addEventListener(
-    'resize',
-    () => {
-      if (window.innerWidth > 900 && menuOpen) {
-        closeMenu();
-      }
-    },
-    { passive: true },
-  );
+  const handleResize = () => {
+    syncMobileState();
+    if (window.innerWidth > 900 && menuOpen) {
+      closeMenu();
+    }
+  };
+
+  window.addEventListener('resize', () => {
+    window.requestAnimationFrame(handleResize);
+  }, { passive: true });
 
   // Ripple effect on buttons
   document.querySelectorAll('.btn-primary, .btn-secondary, .btn-contact, .btn-primary-large').forEach((button) => {
