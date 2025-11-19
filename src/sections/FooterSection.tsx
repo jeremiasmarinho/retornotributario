@@ -5,9 +5,8 @@ export const FooterSection = () => (
     <div class="mx-auto max-w-6xl px-6">
       <div class="footer-content grid gap-8 border-b border-white/10 pb-10 md:grid-cols-3">
         <div class="footer-brand space-y-3">
-          <div class="footer-logo flex items-center gap-2 text-lg font-semibold text-white">
-            <i class="fas fa-balance-scale text-amber-300"></i>
-            <span>RETORNO TRIBUTÁRIO</span>
+          <div class="flex items-center gap-3 text-lg font-semibold tracking-wide">
+            <img src="/logo.png" alt="Retorno Tributário" class="logo-footer" />
           </div>
           <p class="text-sm">
             Design, dados e estratégia para recuperar o que é seu.

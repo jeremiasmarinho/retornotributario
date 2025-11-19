@@ -1,21 +1,23 @@
 import { jsxRenderer } from "hono/jsx-renderer";
 
-export const renderer = jsxRenderer(({ children, title }) => {
+export const renderer = jsxRenderer(({ children }) => {
   return (
     <html lang="pt-BR">
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>
-          {title || "Retorno Tributário - Recuperação Tributária Estratégica"}
-        </title>
+        <title>Retorno Tributário - Recuperação Tributária Estratégica</title>
         <meta
           name="description"
           content="Recuperação de créditos tributários para empresas. Reduzindo custos, aumentando margens e devolvendo o que é seu por direito."
         />
         <link href="/static/style.css" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600;700&display=swap"
           rel="stylesheet"

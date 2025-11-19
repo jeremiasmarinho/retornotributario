@@ -23,7 +23,7 @@ export const HeroSection = () => (
     >
       <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <div class="flex items-center gap-3 text-lg font-semibold tracking-wide">
-          <img src="/logo.png" alt="Retorno Tributário" class="h-12" />
+          <img src="/logo.png" alt="Retorno Tributário" class="logo-navbar" />
         </div>
 
         <ul
@@ -69,7 +69,7 @@ export const HeroSection = () => (
       <div class="drawer-panel" data-animate="slide-left">
         <div class="drawer-header mb-4 flex items-center justify-between">
           <div class="flex items-center gap-3 text-lg font-semibold">
-            <img src="/logo.png" alt="Retorno Tributário" class="h-9" />
+            <img src="/logo.png" alt="Retorno Tributário" class="logo-drawer" />
           </div>
           <button
             class="mobile-close h-10 w-10 rounded-full border border-white/20 text-white"
@@ -171,10 +171,9 @@ export const HeroSection = () => (
           data-animate="fade-up"
         >
           <p class="text-xs uppercase tracking-[0.3em] text-amber-200">
-            Dashboard
+            A sua empresa
           </p>
-          <p class="mt-2 text-lg font-semibold text-white">Lucro Real</p>
-          <span class="text-xs text-white/60">Atualizado há 2 min</span>
+          <p class="mt-2 text-lg font-semibold text-white">Em boas mãos</p>
         </div>
         <div
           class="floating-card secondary parallax-item absolute -top-6 right-4 flex w-48 items-center gap-3 glass-panel p-4 text-white/80"

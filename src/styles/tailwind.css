@@ -44,6 +44,20 @@
 }
 
 @layer components {
+
+  /* Logo sizing utilities */
+  .logo-navbar {
+    height: 52px;
+  }
+
+  .logo-drawer {
+    height: 72px;
+  }
+
+  .logo-footer {
+    height: 72px;
+  }
+
   .site-shell {
     @apply relative min-h-screen bg-gradient-to-b from-brand-black via-gray-950 to-black text-white;
     overflow: hidden;
@@ -273,6 +287,7 @@
       linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
     background-size: 120px 120px;
     opacity: 0.3;
+    pointer-events: none;
   }
 
   body.is-mobile .tilt-card {
