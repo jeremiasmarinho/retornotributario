@@ -1,6 +1,6 @@
 {
-  "buildCommand": "node vercel-build.js",
+  "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "other",
+  "framework": "hono",
   "installCommand": "npm install"
 }
