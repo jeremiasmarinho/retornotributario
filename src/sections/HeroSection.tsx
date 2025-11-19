@@ -2,7 +2,10 @@ import { navLinks, heroHighlights } from "../content/data";
 
 export const HeroSection = () => (
   <section class="hero brand-aurora relative pb-24 text-white" data-aurora>
-    <div class="hero-effects absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div
+      class="hero-effects absolute inset-0 pointer-events-none"
+      aria-hidden="true"
+    >
       <span
         class="parallax-item absolute -left-16 top-1/4 h-64 w-64 rounded-full bg-amber-400/25 blur-3xl"
         data-parallax-depth="0.05"
@@ -14,11 +17,13 @@ export const HeroSection = () => (
       <span class="grid-lines"></span>
     </div>
 
-    <nav class="navbar fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur" data-navbar>
+    <nav
+      class="navbar fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-gray-950/70 backdrop-blur"
+      data-navbar
+    >
       <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <div class="flex items-center gap-3 text-lg font-semibold tracking-wide">
           <img src="/logo.png" alt="Retorno Tributário" class="h-12" />
-          <span class="hidden text-white/80 sm:inline">Retorno Tributário</span>
         </div>
 
         <ul
@@ -62,10 +67,9 @@ export const HeroSection = () => (
     <div class="mobile-drawer" data-menu-drawer>
       <div class="drawer-overlay" data-menu-overlay></div>
       <div class="drawer-panel" data-animate="slide-left">
-        <div class="drawer-header mb-6 flex items-center justify-between">
+        <div class="drawer-header mb-4 flex items-center justify-between">
           <div class="flex items-center gap-3 text-lg font-semibold">
             <img src="/logo.png" alt="Retorno Tributário" class="h-9" />
-            <span>Retorno Tributário</span>
           </div>
           <button
             class="mobile-close h-10 w-10 rounded-full border border-white/20 text-white"
@@ -78,7 +82,7 @@ export const HeroSection = () => (
             <span></span>
           </button>
         </div>
-        <ul class="drawer-links space-y-4 text-base text-white/80">
+        <ul class="drawer-links space-y-3 text-base text-white/80">
           {navLinks.map((link) => (
             <li key={`drawer-${link.href}`}>
               <a href={link.href} data-menu-link class="block py-2">
@@ -87,7 +91,12 @@ export const HeroSection = () => (
             </li>
           ))}
         </ul>
-        <a href="#contato" class="btn-primary btn-glow mt-8 w-full justify-center" data-menu-link data-ripple>
+        <a
+          href="#contato"
+          class="btn-primary btn-glow mt-6 w-full justify-center"
+          data-menu-link
+          data-ripple
+        >
           <i class="fas fa-calendar-week"></i>
           Falar com especialista
         </a>
@@ -107,13 +116,15 @@ export const HeroSection = () => (
           data-sparkline
           class="text-4xl font-semibold leading-tight text-white md:text-5xl"
         >
-          Recuperação tributária com narrativa clara, dados confiáveis e estética premium.
+          Recuperação tributária com narrativa clara, dados confiáveis e
+          estética premium.
         </h1>
         <p class="subtitle text-base text-white/70" data-animate="fade-up">
-          Atuamos lado a lado com CFOs e times fiscais para recuperar créditos, reduzir margens e
-          liberar caixa com segurança jurídica e narrativa executiva impecável.
+          Atuamos lado a lado com CFOs e times fiscais para recuperar créditos,
+          reduzir margens e liberar caixa com segurança jurídica e narrativa
+          executiva impecável.
         </p>
-        <div class="hero-cta flex flex-wrap gap-4" data-animate="fade-up">
+        <div class="hero-cta flex flex-wrap gap-3" data-animate="fade-up">
           <a href="#contato" class="btn-primary btn-glow" data-ripple>
             <i class="fas fa-magnifying-glass-dollar"></i>
             Solicitar diagnóstico gratuito
@@ -159,7 +170,9 @@ export const HeroSection = () => (
           data-parallax-depth="0.28"
           data-animate="fade-up"
         >
-          <p class="text-xs uppercase tracking-[0.3em] text-amber-200">Dashboard</p>
+          <p class="text-xs uppercase tracking-[0.3em] text-amber-200">
+            Dashboard
+          </p>
           <p class="mt-2 text-lg font-semibold text-white">Lucro Real</p>
           <span class="text-xs text-white/60">Atualizado há 2 min</span>
         </div>
@@ -174,16 +187,18 @@ export const HeroSection = () => (
       </div>
     </div>
 
-    <div class="hero-metrics mt-16 border-t border-white/10 bg-white/5/10 py-10 backdrop-blur">
+    <div class="hero-metrics mt-16 border-t border-white/10 bg-white/5/10 py-12 backdrop-blur">
       <div class="mx-auto grid max-w-6xl gap-6 px-6 sm:grid-cols-2 lg:grid-cols-4">
         {heroHighlights.map((highlight) => (
           <div
-            class="metric-card tilt-card glass-panel border-glow p-5 text-left text-white"
+            class="metric-card tilt-card glass-panel border-glow p-6 text-left text-white"
             key={highlight.label}
             data-animate="fade-up"
           >
             <i class={`fas ${highlight.icon} text-2xl text-amber-300`}></i>
-            <strong class="mt-3 block text-2xl font-semibold">{highlight.value}</strong>
+            <strong class="mt-3 block text-2xl font-semibold">
+              {highlight.value}
+            </strong>
             <span class="text-sm text-white/60">{highlight.label}</span>
           </div>
         ))}

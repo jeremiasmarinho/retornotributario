@@ -25,7 +25,9 @@ export const renderer = jsxRenderer(({ children, title }) => {
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <div class="site-shell">{children}</div>
+      </body>
     </html>
   );
 });

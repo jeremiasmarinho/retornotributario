@@ -2,15 +2,20 @@ import { testimonials } from "../content/data";
 
 export const TestimonialsSection = () => (
   <section
-    class="section section-dark testimonials bg-slate-950 py-20"
+    class="section section-dark testimonials bg-gray-950 py-20"
     data-animate="fade-up"
   >
     <div class="mx-auto max-w-6xl px-6">
       <div class="section-header text-center">
-        <span class="section-tag text-sm uppercase tracking-[0.4em] text-amber-300">Depoimentos</span>
-        <h2 class="text-3xl font-semibold text-white">Histórias reais e humanizadas</h2>
+        <span class="section-tag text-sm uppercase tracking-[0.4em] text-amber-300">
+          Depoimentos
+        </span>
+        <h2 class="text-3xl font-semibold text-white">
+          Histórias reais e humanizadas
+        </h2>
         <p class="section-subtitle text-white/70">
-          Nada comunica melhor do que ouvir quem já acelerou resultados com a gente.
+          Nada comunica melhor do que ouvir quem já acelerou resultados com a
+          gente.
         </p>
       </div>
       <div class="testimonials-grid grid gap-6 md:grid-cols-3">
@@ -20,7 +25,7 @@ export const TestimonialsSection = () => (
             key={testimonial.name}
             data-animate="zoom-in"
           >
-            <div class="testimonial-header mb-4 flex items-center gap-4">
+            <div class="testimonial-header mb-4 flex items-center gap-3">
               <img
                 src={testimonial.avatar}
                 alt={testimonial.name}
@@ -35,7 +40,9 @@ export const TestimonialsSection = () => (
                 </span>
               </div>
             </div>
-            <p class="text-sm leading-relaxed text-white/70">{testimonial.quote}</p>
+            <p class="text-sm leading-relaxed text-white/70">
+              {testimonial.quote}
+            </p>
           </div>
         ))}
       </div>
