@@ -3,32 +3,32 @@ import { teses } from "../content/data";
 export const ThesesSection = () => (
   <section
     id="teses"
-    class="section section-soft bg-gray-900/40 py-20"
+    className="section section-soft bg-gray-900/40 py-20"
     data-animate="fade-up"
   >
-    <div class="mx-auto max-w-6xl px-6">
-      <div class="section-header text-center">
-        <span class="section-tag text-sm uppercase tracking-[0.4em] text-amber-300">
+    <div className="mx-auto max-w-6xl px-6">
+      <div className="section-header text-center">
+        <span className="section-tag text-sm uppercase tracking-[0.4em] text-amber-300">
           Teses prioritárias
         </span>
-        <h2 class="text-3xl font-semibold text-white">
+        <h2 className="text-3xl font-semibold text-white">
           Abordamos teses com embasamento robusto
         </h2>
       </div>
-      <div class="teses-grid grid gap-6 md:grid-cols-2">
+      <div className="teses-grid grid gap-6 md:grid-cols-2">
         {teses.map((tese) => (
           <article
-            class="tese-card tilt-card rounded-3xl border-l-4 border-amber-300 bg-white p-6 text-gray-950 shadow-xl"
+            className="tese-card tilt-card rounded-3xl border-l-4 border-amber-300 bg-white p-6 text-gray-950 shadow-xl"
             key={tese.title}
             data-animate="slide-up"
           >
-            <span class="tese-tag inline-flex items-center gap-2 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-700">
+            <span className="tese-tag inline-flex items-center gap-2 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-700">
               {tese.tag}
             </span>
-            <h3 class="mt-3 text-xl font-semibold text-gray-950">
+            <h3 className="mt-3 text-xl font-semibold text-gray-950">
               {tese.title}
             </h3>
-            <p class="mt-2 text-sm text-gray-600">{tese.description}</p>
+            <p className="mt-2 text-sm text-gray-600">{tese.description}</p>
           </article>
         ))}
       </div>
