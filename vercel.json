@@ -1,7 +1,6 @@
 {
   "buildCommand": "node build-vercel.cjs",
-  "outputDirectory": ".",
-  "framework": "hono",
+  "outputDirectory": "public",
   "env": {
     "NODE_ENV": "production"
   }
