@@ -35,5 +35,9 @@ function App() {
 // Render the app
 const root = document.getElementById("root");
 if (root) {
-  ReactDOM.createRoot(root).render(<App />);
+  ReactDOM.createRoot(root).render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
 }
