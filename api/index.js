@@ -50,7 +50,10 @@ export default async function handler(req, res) {
       response = await app(request);
     } else {
       // Last resort: try to call default export as function
-      console.error("App is neither a Hono instance nor a function:", typeof app);
+      console.error(
+        "App is neither a Hono instance nor a function:",
+        typeof app
+      );
       throw new Error("Invalid app export");
     }
 
