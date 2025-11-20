@@ -10,11 +10,10 @@ export const GallerySection = () => (
           Bastidores
         </span>
         <h2 className="text-3xl font-semibold text-white">
-          Veja como conduzimos cada projeto
+          Como estruturamos e executamos cada projeto
         </h2>
         <p className="section-subtitle text-white/70">
-          Registro fotográfico realça credibilidade e aproxima sua empresa do
-          público.
+          Transparência operacional reforça confiança e acelera aprovações internas.
         </p>
       </div>
       <div className="gallery-grid grid gap-6 md:grid-cols-2 lg:grid-cols-4">

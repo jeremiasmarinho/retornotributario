@@ -9,7 +9,7 @@ export const FooterSection = () => (
             <img src="/logo.png" alt="Retorno Tributário" className="logo-footer" />
           </div>
           <p className="text-sm">
-            Design, dados e estratégia para recuperar o que é seu.
+            Estratégia, evidência e execução para liberar caixa fiscal.
           </p>
         </div>
         <div className="footer-links">

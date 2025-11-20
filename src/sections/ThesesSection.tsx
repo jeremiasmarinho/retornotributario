@@ -11,7 +11,7 @@ export const ThesesSection = () => (
           Teses prioritárias
         </span>
         <h2 className="text-3xl font-semibold text-white">
-          Abordamos teses com embasamento robusto
+          Priorizamos teses com lastro jurídico e impacto financeiro
         </h2>
       </div>
       <div className="teses-grid grid gap-6 md:grid-cols-2">

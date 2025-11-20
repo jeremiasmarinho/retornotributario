@@ -11,7 +11,7 @@ export const ResultsSection = () => (
           Resultados
         </span>
         <h2 className="text-3xl font-semibold text-white">
-          Impacto mensurável que aparece no DRE
+          Resultados que entram no DRE e liberam fluxo de caixa
         </h2>
       </div>
       <div className="result-grid grid gap-6 sm:grid-cols-2">

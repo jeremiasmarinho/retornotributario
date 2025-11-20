@@ -11,7 +11,7 @@ export const ProcessSection = () => (
           Processo
         </span>
         <h2 className="text-3xl font-semibold text-white">
-          Uma jornada clara do diagnóstico à compensação
+          Do mapeamento à entrada do crédito — com visibilidade total
         </h2>
       </div>
       <div className="process-grid grid gap-6 md:grid-cols-2">

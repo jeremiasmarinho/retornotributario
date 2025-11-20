@@ -111,28 +111,27 @@ export const HeroSection = () => (
     <div className="mx-auto grid max-w-6xl gap-12 px-6 pt-32 lg:grid-cols-2">
       <div className="hero-text parallax-item space-y-6">
         <p className="eyebrow text-sm uppercase tracking-[0.3em] text-amber-300">
-          Inteligência fiscal aplicada
+          Inteligência tributária orientada a performance
         </p>
         <h1
           data-sparkline
           className="text-4xl font-semibold leading-tight text-white md:text-5xl"
         >
-          Recuperação tributária com narrativa clara, dados confiáveis e
-          estética premium.
+          Liberamos caixa tributário com método, evidências e segurança.
         </h1>
         <p className="subtitle text-base text-white/70">
-          Atuamos lado a lado com CFOs e times fiscais para recuperar créditos,
-          reduzir margens e liberar caixa com segurança jurídica e narrativa
-          executiva impecável.
+          Trabalhamos com CFOs e equipes fiscais para identificar créditos,
+          reduzir a carga efetiva e acelerar fluxo de caixa — com validação
+          jurídica e apresentação executiva pronta para o board.
         </p>
         <div className="hero-cta flex flex-wrap gap-3">
           <a href="#contato" className="btn-primary btn-glow" data-ripple>
             <i className="fas fa-magnifying-glass-dollar"></i>
-            Solicitar diagnóstico gratuito
+            Receber análise inicial
           </a>
           <a href="#processo" className="btn-secondary" data-ripple>
             <i className="fas fa-circle-play"></i>
-            Conheça o processo
+            Ver como operamos
           </a>
         </div>
       </div>

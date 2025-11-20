@@ -9,11 +9,10 @@ export const CtaSection = () => (
             Próximo passo
           </span>
           <h2 className="text-3xl font-semibold text-gray-900">
-            Vamos desenhar um roteiro de recuperação alinhado à sua estratégia?
+            Quer uma visão clara das oportunidades tributárias da sua operação?
           </h2>
           <p className="text-base text-gray-600">
-            Reunimos documentos essenciais, criamos projeções e apresentamos um
-            storytelling financeiro pronto para ser levado ao board.
+            Analisamos documentos chave, projetamos impacto no caixa e entregamos um material executivo pronto para decisão.
           </p>
         </div>
         <a
@@ -22,7 +21,7 @@ export const CtaSection = () => (
           data-ripple
         >
           <i className="fas fa-calendar-week"></i>
-          Agendar diagnóstico guiado
+          Receber análise inicial
         </a>
       </div>
     </div>

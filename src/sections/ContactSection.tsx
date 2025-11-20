@@ -14,8 +14,7 @@ export const ContactSection = () => (
             Contato
           </span>
           <h2 className="text-3xl font-semibold text-white">
-            Conte-nos sobre o seu cenário tributário e receba um plano visual e
-            estratégico.
+            Descreva seu contexto tributário e receba uma pré-avaliação estruturada.
           </h2>
         </div>
         <div className="contact-methods grid gap-3">
@@ -52,17 +51,17 @@ export const ContactSection = () => (
             Lead
           </span>
           <h3 className="text-2xl font-semibold text-white">
-            Solicite uma análise
+            Solicitar avaliação preliminar
           </h3>
           <p className="text-sm text-white/70 mt-2">
-            Preencha o formulário e nossa equipe entrará em contato.
+            Respondemos com escopo inicial e próximos passos em até 24h.
           </p>
         </div>
 
         <form className="lead-form space-y-4 flex-1 flex flex-col" data-form="lead">
           <div className="form-group">
             <label
-              for="lead-name"
+              htmlFor="lead-name"
               className="block text-sm font-semibold text-white mb-2"
             >
               Nome Completo
@@ -79,7 +78,7 @@ export const ContactSection = () => (
 
           <div className="form-group">
             <label
-              for="lead-email"
+              htmlFor="lead-email"
               className="block text-sm font-semibold text-white mb-2"
             >
               E-mail
@@ -96,7 +95,7 @@ export const ContactSection = () => (
 
           <div className="form-group flex-1">
             <label
-              for="lead-message"
+              htmlFor="lead-message"
               className="block text-sm font-semibold text-white mb-2"
             >
               Mensagem
@@ -117,7 +116,7 @@ export const ContactSection = () => (
             data-ripple
           >
             <i className="fas fa-paper-plane"></i>
-            Enviar Solicitação
+            Receber avaliação
           </button>
 
           <p className="text-xs text-white/50 text-center mt-4">

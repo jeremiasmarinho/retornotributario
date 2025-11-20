@@ -10,22 +10,22 @@ export const heroHighlights = [
   {
     icon: "fa-chart-line",
     value: "2% a 8%",
-    label: "Economia média na carga tributária",
+    label: "Redução média da carga",
   },
   {
     icon: "fa-building-columns",
     value: "R$ 120 mi+",
-    label: "Créditos identificados e homologados",
+    label: "Créditos homologados",
   },
   {
     icon: "fa-user-shield",
     value: "120+",
-    label: "Projetos auditados com segurança jurídica",
+    label: "Projetos auditados (compliance aprovado)",
   },
   {
     icon: "fa-bolt",
     value: "30 dias",
-    label: "Para os primeiros resultados práticos",
+    label: "Primeiros resultados operacionais",
   },
 ] as const;
 
@@ -82,7 +82,7 @@ export const galleryImages = [
 export const processSteps = [
   {
     step: "01",
-    title: "Imersão e coleta inteligente",
+    title: "Mapeamento e coleta estruturada",
     description:
       "Mapeamos operações, contratos e obrigações acessórias para entender sua realidade fiscal.",
     icon: "fa-magnifying-glass-chart",
@@ -96,14 +96,14 @@ export const processSteps = [
   },
   {
     step: "03",
-    title: "Execução com governança",
+    title: "Execução controlada e segura",
     description:
       "Protocolos, retificações e defesas são conduzidos com total rastreabilidade e visão de riscos.",
     icon: "fa-diagram-project",
   },
   {
     step: "04",
-    title: "Acompanhamento e performance",
+    title: "Monitoramento e impacto financeiro",
     description:
       "Dashboards mostram o avanço de compensações, restituições e impactos no fluxo de caixa.",
     icon: "fa-gauge-high",

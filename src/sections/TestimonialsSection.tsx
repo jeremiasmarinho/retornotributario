@@ -10,11 +10,10 @@ export const TestimonialsSection = () => (
           Depoimentos
         </span>
         <h2 className="text-3xl font-semibold text-white">
-          Histórias reais e humanizadas
+          Depoimentos de quem já gerou retorno
         </h2>
         <p className="section-subtitle text-white/70">
-          Nada comunica melhor do que ouvir quem já acelerou resultados com a
-          gente.
+          O que nossos clientes perceberam em performance e governança.
         </p>
       </div>
       <div className="testimonials-grid grid gap-6 md:grid-cols-3">
