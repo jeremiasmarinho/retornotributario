@@ -1,27 +1,22 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "env": ["NODE_ENV"],
+  "outputDirectory": ".",
   "functions": {
-    "api/**/*.js": {
+    "api/index.js": {
       "runtime": "nodejs20.x"
     }
   },
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/api/index.js"
-    }
-  ],
-  "headers": [
+      "src": "/static/(.*)",
+      "dest": "/public/static/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
     {
-      "source": "/static/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
+      "src": "/(.*)",
+      "dest": "/api/index.js"
     }
   ]
 }
