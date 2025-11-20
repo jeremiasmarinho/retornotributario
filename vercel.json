@@ -4,5 +4,19 @@
     "api/**/*.js": {
       "runtime": "nodejs20.x"
     }
-  }
+  },
+  "routes": [
+    {
+      "src": "/test\\.html",
+      "dest": "/public/test.html"
+    },
+    {
+      "src": "/test$",
+      "dest": "/api/test.js"
+    },
+    {
+      "src": "/.*",
+      "dest": "/api/index.js"
+    }
+  ]
 }
