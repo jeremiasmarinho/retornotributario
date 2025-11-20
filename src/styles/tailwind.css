@@ -186,7 +186,8 @@
     transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
   }
 
-  [data-animate] {
+  /* Animations removed - static site doesn't need these */
+  /* [data-animate] {
     @apply opacity-0;
     transform: translateY(32px);
     transition: opacity 0.7s ease, transform 0.7s ease;
@@ -195,7 +196,7 @@
   .animate-visible {
     @apply opacity-100;
     transform: none !important;
-  }
+  } */
 
   .hero {
     --hero-light-x: 40%;
