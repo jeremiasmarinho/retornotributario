@@ -1,4 +1,75 @@
 import app from "../dist/_worker.js";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const publicDir = path.join(__dirname, "..", "public");
+
+// MIME type mapping
+const mimeTypes = {
+  ".html": "text/html",
+  ".css": "text/css",
+  ".js": "application/javascript",
+  ".json": "application/json",
+  ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".gif": "image/gif",
+  ".svg": "image/svg+xml",
+  ".ico": "image/x-icon",
+};
+
+function getMimeType(filePath) {
+  const ext = path.extname(filePath).toLowerCase();
+  return mimeTypes[ext] || "application/octet-stream";
+}
+
+// Serve static files from public/
+async function serveStatic(pathname) {
+  try {
+    let filePath = path.join(publicDir, pathname);
+
+    // If it's a directory or root, serve index.html
+    if (pathname === "/" || pathname === "") {
+      filePath = path.join(publicDir, "index.html");
+    }
+
+    // Security: prevent directory traversal
+    if (!path.resolve(filePath).startsWith(path.resolve(publicDir))) {
+      return null;
+    }
+
+    // Check if file exists
+    if (!fs.existsSync(filePath)) {
+      return null;
+    }
+
+    const stat = fs.statSync(filePath);
+    if (stat.isDirectory()) {
+      // Try index.html in the directory
+      filePath = path.join(filePath, "index.html");
+      if (!fs.existsSync(filePath)) {
+        return null;
+      }
+    }
+
+    const content = fs.readFileSync(filePath);
+    const mimeType = getMimeType(filePath);
+
+    return new Response(content, {
+      status: 200,
+      headers: {
+        "Content-Type": mimeType,
+        "Content-Length": content.length.toString(),
+        "Cache-Control": "public, max-age=3600",
+      },
+    });
+  } catch (err) {
+    console.error("Static serve error:", err.message);
+    return null;
+  }
+}
 
 // Vercel expects a function (req, res). Wrap the Hono app (Cloudflare-style) so
 // it can be used as a Node serverless function.
@@ -12,6 +83,19 @@ export default async function handler(req, res) {
     const host =
       req.headers["x-forwarded-host"] || req.headers.host || "localhost";
     const url = `${proto}://${host}${req.url}`;
+    const pathname = new URL(url).pathname;
+
+    // Try to serve static files first
+    const staticResponse = await serveStatic(pathname);
+    if (staticResponse) {
+      res.statusCode = staticResponse.status;
+      for (const [k, v] of staticResponse.headers) {
+        res.setHeader(k, v);
+      }
+      const buf = await staticResponse.arrayBuffer();
+      res.end(Buffer.from(buf));
+      return;
+    }
 
     // Build Headers
     const headers = new Headers();
@@ -37,9 +121,6 @@ export default async function handler(req, res) {
     });
 
     // Call the Hono app exported in dist/_worker.js
-    // The app can be:
-    // 1. A Hono instance with .fetch(request, env)
-    // 2. A default export that is callable
     let response;
 
     if (app && typeof app.fetch === "function") {
@@ -49,11 +130,6 @@ export default async function handler(req, res) {
       // Fallback: app is directly callable
       response = await app(request);
     } else {
-      // Last resort: try to call default export as function
-      console.error(
-        "App is neither a Hono instance nor a function:",
-        typeof app
-      );
       throw new Error("Invalid app export");
     }
 
@@ -74,7 +150,6 @@ export default async function handler(req, res) {
         }
       } catch (streamErr) {
         console.error("Stream error:", streamErr.message);
-        res.write(JSON.stringify({ error: "Stream error" }));
       }
     }
     res.end();
