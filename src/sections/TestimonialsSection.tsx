@@ -3,7 +3,6 @@ import { testimonials } from "../content/data";
 export const TestimonialsSection = () => (
   <section
     className="section section-dark testimonials bg-gray-950 py-20"
-    data-animate="fade-up"
   >
     <div className="mx-auto max-w-6xl px-6">
       <div className="section-header text-center">
@@ -23,7 +22,6 @@ export const TestimonialsSection = () => (
           <div
             className="testimonial-card tilt-card rounded-3xl border border-white/10 bg-white/5 p-6 text-white/80 shadow-lg"
             key={testimonial.name}
-            data-animate="zoom-in"
           >
             <div className="testimonial-header mb-4 flex items-center gap-3">
               <img

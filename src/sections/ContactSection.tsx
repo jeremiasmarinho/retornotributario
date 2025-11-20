@@ -4,12 +4,10 @@ export const ContactSection = () => (
   <section
     id="contato"
     className="section section-contact bg-gradient-to-br from-gray-950 to-gray-900 py-20"
-    data-animate="fade-up"
   >
     <div className="mx-auto grid max-w-6xl gap-8 px-6 lg:grid-cols-2">
       <div
         className="contact-card flexible tilt-card glass-panel p-8"
-        data-animate="slide-up"
       >
         <div className="section-header compact">
           <span className="section-tag text-sm uppercase tracking-[0.4em] text-amber-300">
@@ -28,7 +26,6 @@ export const ContactSection = () => (
               key={method.title}
               target={method.icon === "fa-location-dot" ? "_blank" : "_self"}
               rel="noreferrer"
-              data-animate="fade-up"
               data-ripple
             >
               <i className={`fas ${method.icon} text-amber-300`}></i>
@@ -49,7 +46,6 @@ export const ContactSection = () => (
       </div>
       <div
         className="contact-card form-card tilt-card glass-panel p-8 flex flex-col"
-        data-animate="zoom-in"
       >
         <div className="section-header compact mb-6">
           <span className="section-tag text-sm uppercase tracking-[0.4em] text-amber-300">

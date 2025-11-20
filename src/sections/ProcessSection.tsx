@@ -4,7 +4,6 @@ export const ProcessSection = () => (
   <section
     id="processo"
     className="section section-highlight bg-gradient-to-br from-gray-950 to-gray-900 py-20"
-    data-animate="fade-up"
   >
     <div className="mx-auto max-w-6xl px-6">
       <div className="section-header text-center">
@@ -20,7 +19,6 @@ export const ProcessSection = () => (
           <div
             className="process-card tilt-card rounded-3xl border border-white/10 bg-white/5 p-6 text-white/80 shadow-lg"
             key={step.title}
-            data-animate="slide-up"
           >
             <span className="process-step text-xs uppercase tracking-[0.4em] text-amber-200">
               {step.step}

@@ -2,10 +2,9 @@ export const AboutSection = () => (
   <section
     id="quem-somos"
     className="section section-soft bg-gray-900/40 py-20"
-    data-animate="fade-up"
   >
     <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-2">
-      <div className="story-card tilt-card glass-panel p-8" data-animate="slide-up">
+      <div className="story-card tilt-card glass-panel p-8">
         <div className="section-header compact">
           <span className="section-tag text-sm uppercase tracking-[0.4em] text-amber-300">
             Quem somos
@@ -39,7 +38,6 @@ export const AboutSection = () => (
 
       <div
         className="photo-card tilt-card relative overflow-hidden glass-panel"
-        data-animate="zoom-in"
       >
         <img
           src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=80"

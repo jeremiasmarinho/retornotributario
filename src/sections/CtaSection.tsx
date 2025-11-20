@@ -1,7 +1,6 @@
 export const CtaSection = () => (
   <section
     className="section section-cta bg-gradient-to-br from-brand-black via-gray-950 to-brand-charcoal py-20 text-white"
-    data-animate="fade-up"
   >
     <div className="mx-auto max-w-5xl px-6">
       <div className="cta-panel tilt-card flex flex-col items-start gap-6 rounded-[32px] bg-white/80 p-10 shadow-2xl md:flex-row md:items-center md:justify-between">

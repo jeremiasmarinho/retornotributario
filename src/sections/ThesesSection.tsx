@@ -4,7 +4,6 @@ export const ThesesSection = () => (
   <section
     id="teses"
     className="section section-soft bg-gray-900/40 py-20"
-    data-animate="fade-up"
   >
     <div className="mx-auto max-w-6xl px-6">
       <div className="section-header text-center">
@@ -20,7 +19,6 @@ export const ThesesSection = () => (
           <article
             className="tese-card tilt-card rounded-3xl border-l-4 border-amber-300 bg-white p-6 text-gray-950 shadow-xl"
             key={tese.title}
-            data-animate="slide-up"
           >
             <span className="tese-tag inline-flex items-center gap-2 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-700">
               {tese.tag}

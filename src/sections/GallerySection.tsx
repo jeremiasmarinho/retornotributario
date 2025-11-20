@@ -3,7 +3,6 @@ import { galleryImages } from "../content/data";
 export const GallerySection = () => (
   <section
     className="section section-gallery bg-gray-900 py-20"
-    data-animate="fade-up"
   >
     <div className="mx-auto max-w-6xl px-6">
       <div className="section-header text-center">
@@ -23,7 +22,6 @@ export const GallerySection = () => (
           <article
             className="gallery-card tilt-card group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 shadow-xl"
             key={image.caption}
-            data-animate="zoom-in"
           >
             <img
               src={image.src}

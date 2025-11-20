@@ -4,7 +4,6 @@ export const DifferentialsSection = () => (
   <section
     id="diferenciais"
     className="section bg-gray-950 py-20"
-    data-animate="fade-up"
   >
     <div className="mx-auto max-w-6xl px-6">
       <div className="section-header text-center">
@@ -24,7 +23,6 @@ export const DifferentialsSection = () => (
           <div
             className="feature-card tilt-card glass-panel border-glow p-6 text-white/80"
             key={item.title}
-            data-animate="zoom-in"
           >
             <div className="icon-badge mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-amber-300/20 text-amber-300">
               <i className={`fas ${item.icon}`}></i>

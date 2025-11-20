@@ -4,7 +4,6 @@ export const ResultsSection = () => (
   <section
     id="resultados"
     className="section bg-gray-950 py-20"
-    data-animate="fade-up"
   >
     <div className="mx-auto max-w-6xl px-6">
       <div className="section-header text-center">
@@ -20,7 +19,6 @@ export const ResultsSection = () => (
           <div
             className="result-card tilt-card rounded-3xl border border-white/10 bg-white/5 p-6 text-white shadow-lg"
             key={result.label}
-            data-animate="fade-up"
           >
             <h3 className="text-3xl font-semibold text-amber-300">
               {result.value}
