@@ -1,5 +1,5 @@
-import { Hono } from "hono";
-import { renderer } from "./renderer";
+import React from "react";
+import ReactDOM from "react-dom/client";
 import {
   AboutSection,
   ContactSection,
@@ -14,12 +14,8 @@ import {
   ThesesSection,
 } from "./sections";
 
-const app = new Hono();
-
-app.use(renderer);
-
-app.get("/", (c) =>
-  c.render(
+function App() {
+  return (
     <>
       <HeroSection />
       <AboutSection />
@@ -32,9 +28,12 @@ app.get("/", (c) =>
       <CtaSection />
       <ContactSection />
       <FooterSection />
-      <script src="/static/script.js"></script>
-    </>,
-  ),
-);
+    </>
+  );
+}
 
-export default app;
+// Render the app
+const root = document.getElementById("root");
+if (root) {
+  ReactDOM.createRoot(root).render(<App />);
+}

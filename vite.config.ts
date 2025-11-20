@@ -1,22 +1,14 @@
-import build from "@hono/vite-build";
-import devServer from "@hono/vite-dev-server";
-import adapter from "@hono/vite-dev-server/node";
 import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  plugins: [
-    build({
-      entry: "src/index.tsx",
-      emptyOutDir: true,
-    }),
-    devServer({
-      adapter,
-      entry: "src/index.tsx",
-    }),
-  ],
+  plugins: [react()],
   build: {
+    outDir: "dist",
+    emptyOutDir: true,
     target: "esnext",
     minify: "terser",
     sourcemap: false,
   },
+  publicDir: "public",
 });
