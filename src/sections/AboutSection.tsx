@@ -1,3 +1,5 @@
+import { partners } from "../content/data";
+
 export const AboutSection = () => (
   <section
     id="quem-somos"
@@ -57,24 +59,35 @@ export const AboutSection = () => (
         </ul>
       </div>
 
-      <div
-        className="photo-card tilt-card relative overflow-hidden glass-panel"
-        data-motion="zoom-in"
-        data-motion-delay="180"
-      >
-        <img
-          src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=80"
-          alt="Sala de reunião moderna com documentos fiscais"
-          loading="lazy"
-          decoding="async"
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute bottom-6 left-6 rounded-2xl border border-white/20 bg-gray-900/80 px-5 py-3 text-sm text-white/80 backdrop-blur">
-          <strong className="block text-xl text-white">
-            +20 especialistas
-          </strong>
-          <span>jurídico • contábil • dados</span>
-        </div>
+      <div className="grid gap-6 sm:grid-cols-2">
+        {partners.map((partner, index) => (
+          <div
+            key={partner.name}
+            className="glass-panel tilt-card flex flex-col items-center p-6 text-center"
+            data-motion="zoom-in"
+            data-motion-delay={180 + index * 100}
+          >
+            <div className="mb-4 h-32 w-32 overflow-hidden rounded-full border-4 border-amber-300/20 shadow-lg shadow-amber-900/20">
+              <img
+                src={partner.image}
+                alt={partner.name}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <h3 className="mb-1 text-lg font-bold text-amber-300">
+              {partner.name}
+            </h3>
+            <p className="mb-3 text-sm font-medium text-white">
+              {partner.role}
+            </p>
+            <div className="space-y-1 text-xs text-white/60">
+              {partner.details.map((detail, i) => (
+                <p key={i}>{detail}</p>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>

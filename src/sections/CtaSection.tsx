@@ -19,7 +19,7 @@ export const CtaSection = () => (
         </div>
         <a
           href="#contato"
-          className="btn-primary btn-glow bg-gray-900 text-white hover:bg-gray-800 whitespace-nowrap"
+          className="btn-primary btn-glow bg-gray-900 text-white hover:bg-gray-800 whitespace-nowrap text-xs"
           data-ripple
         >
           <i className="fas fa-calendar-week"></i>

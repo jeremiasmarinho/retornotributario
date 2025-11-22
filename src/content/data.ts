@@ -2,7 +2,6 @@ export const navLinks = [
   { href: "#quem-somos", label: "Quem Somos" },
   { href: "#diferenciais", label: "Diferenciais" },
   { href: "#processo", label: "Processo" },
-  { href: "#resultados", label: "Resultados" },
   { href: "#teses", label: "Teses" },
 ] as const;
 
@@ -187,6 +186,27 @@ export const testimonials = [
     company: "Atlas Logística",
     avatar:
       "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=400&q=80",
+  },
+] as const;
+
+export const partners = [
+  {
+    name: "Marquislei Martins",
+    role: "Advogado Tributarista",
+    details: [
+      "OAB n. 11.778",
+      "Pós-Graduado em Recuperação de Créditos Tributários",
+    ],
+    image: "/marquislei.png",
+  },
+  {
+    name: "Robson Nunes",
+    role: "Advogado Tributarista",
+    details: [
+      "OAB n. 12.159",
+      "Pós-Graduado em Recuperação de Créditos Tributários",
+    ],
+    image: "/robson.png",
   },
 ] as const;
 

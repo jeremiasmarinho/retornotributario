@@ -31,4 +31,20 @@ describe("App", () => {
     const motionElements = document.querySelectorAll("[data-motion]");
     expect(motionElements.length).toBeGreaterThan(0);
   });
+
+  it("mantém a navegação apontando para seções existentes", () => {
+    const { container } = render(<App />);
+    const sectionIds = Array.from(
+      container.querySelectorAll("section[id]")
+    ).map((section) => `#${section.id}`);
+
+    const navAnchors = Array.from(
+      container.querySelectorAll("[data-nav-link]")
+    );
+
+    navAnchors.forEach((anchor) => {
+      const href = anchor.getAttribute("href");
+      expect(sectionIds).toContain(href);
+    });
+  });
 });

@@ -108,7 +108,7 @@ export const HeroSection = () => (
       </div>
     </div>
 
-    <div className="mx-auto grid max-w-6xl gap-12 px-6 pt-32 lg:grid-cols-2">
+    <div className="mx-auto grid max-w-6xl gap-12 px-6 pt-32 lg:grid-cols-2 relative z-10">
       <div
         className="hero-text parallax-item space-y-6"
         data-motion="fade-up"
