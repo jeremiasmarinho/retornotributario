@@ -7,34 +7,31 @@
 **Estrutura TypeScript:**
 
 - ✅ Todos os componentes em `src/sections/` são `.tsx`
-- ✅ Arquivo principal `src/index.tsx` importa e renderiza componentes
-- ✅ `src/renderer.tsx` com configuração limpa
+- ✅ `src/App.tsx` compõe a landing page para o bundle SPA
+- ✅ `src/main.tsx` executa o bootstrap React + StrictMode
 
 **Sistema de Estilos - TAILWIND CSS ÚNICO:**
 
-- ✅ `src/styles/tailwind.css` é a **FONTE DE VERDADE**
+- ✅ `src/styles/main.css` é a **FONTE DE VERDADE**
 - ✅ Removido `src/style.css` conflitante
-- ✅ `public/static/style.css` é **GERADO AUTOMATICAMENTE** (não editar)
 - ✅ Zero conflitos de CSS
 - ✅ Todas as classes Tailwind funcionam corretamente
 - ✅ Customizações em `@layer components` e `@layer utilities`
 
-**Configuração:**
-
-- ✅ `tailwind.config.js` define cores, fonts, shadows customizadas
+- ✅ `tailwind.config.ts` define cores, fonts, shadows customizadas
 - ✅ `postcss.config.js` com Tailwind + Autoprefixer
 - ✅ `vite.config.ts` otimizado para Hono
 - ✅ `tsconfig.json` com TypeScript correto
 
-**Build:**
+**Build e Testes:**
 
-- ✅ `npm run build:css` gera CSS sem erros
 - ✅ `npm run build` compila tudo para produção
 - ✅ `npm run dev` inicia servidor dev (localhost:5174)
+- ✅ `npm run test` garante cobertura unitária (Vitest)
 
 **Git:**
 
-- ✅ `.gitignore` atualizado (não commita `public/static/style.css` gerado)
+- ✅ `.gitignore` atualizado (ignora `dist/` e `node_modules/`)
 - ✅ Documentação completa em `ESTRUTURA_DO_PROJETO.md`
 
 ---
@@ -44,15 +41,14 @@
 ### MANTER E EDITAR
 
 ```
-✅ src/styles/tailwind.css       ← Edite aqui para customizar estilos
+✅ src/styles/main.css           ← Edite aqui para customizar estilos
 ✅ src/sections/*.tsx             ← Adicione/edite componentes aqui
-✅ tailwind.config.js             ← Configure cores, fonts, breakpoints
+✅ tailwind.config.ts             ← Configure cores, fonts, breakpoints
 ```
 
 ### NÃO EDITAR (gerados automaticamente)
 
 ```
-❌ public/static/style.css        ← Gerado por build
 ❌ dist/                          ← Gerado por build
 ❌ node_modules/                  ← Instalado por npm
 ```
@@ -75,7 +71,7 @@ npm run dev
 
 ### Adicionar estilos
 
-Editar `src/styles/tailwind.css`:
+Editar `src/styles/main.css`:
 
 ```css
 @layer components {
@@ -99,13 +95,18 @@ export const MinhaSecao = () => (
 );
 ```
 
-Importar em `src/index.tsx`:
+Importar em `src/App.tsx`:
 
 ```tsx
 import { MinhaSecao } from "./sections";
 
-// em app.get("/", ...):
-<MinhaSecao />;
+export const App = () => (
+  <>
+    <HeroSection />
+    <MinhaSecao />
+    <FooterSection />
+  </>
+);
 ```
 
 ### Build para produção
@@ -124,6 +125,7 @@ npm run build
 # Tudo deve estar limpo:
 npm run build          # Sem erros
 npm run dev            # Inicia perfeitamente
+npm run test           # Testes passam
 ```
 
 ### Se houver problema:
@@ -166,6 +168,6 @@ npm run build
 
 ---
 
-**Data:** 19 de Novembro de 2025  
+**Data:** 20 de Novembro de 2025  
 **Status:** 🟢 PRONTO PARA PRODUÇÃO  
 **Documentação:** Ver `ESTRUTURA_DO_PROJETO.md` para detalhes completos

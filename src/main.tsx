@@ -1,36 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {
-  AboutSection,
-  ContactSection,
-  CtaSection,
-  DifferentialsSection,
-  FooterSection,
-  GallerySection,
-  HeroSection,
-  ProcessSection,
-  ResultsSection,
-  TestimonialsSection,
-  ThesesSection,
-} from "./sections";
-
-function App() {
-  return (
-    <>
-      <HeroSection />
-      <AboutSection />
-      <DifferentialsSection />
-      <GallerySection />
-      <ProcessSection />
-      <ResultsSection />
-      <ThesesSection />
-      <TestimonialsSection />
-      <CtaSection />
-      <ContactSection />
-      <FooterSection />
-    </>
-  );
-}
+import "./styles/main.css";
+import { App } from "./App";
 
 // Render the app
 const root = document.getElementById("root");

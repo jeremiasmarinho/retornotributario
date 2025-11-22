@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
+  document.body.classList.toggle("motion-ready", !prefersReducedMotion);
+  document.body.classList.toggle("motion-reduced", prefersReducedMotion);
+
   const syncMobileState = () => {
     const isMobileViewport = window.innerWidth <= 768;
     const enableAnimatedMobile = isMobileViewport && !prefersReducedMotion;
@@ -44,29 +47,101 @@ document.addEventListener("DOMContentLoaded", () => {
   updateNavbar();
   window.addEventListener("scroll", updateNavbar, { passive: true });
 
-  // Reveal animations
-  const animatedElements = document.querySelectorAll("[data-animate]");
+  // Scroll progress indicator
+  const scrollProgress = document.createElement("span");
+  scrollProgress.className = "scroll-progress";
+  document.body.appendChild(scrollProgress);
+
+  const updateScrollProgress = () => {
+    const scrollTop = window.pageYOffset;
+    const docHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+    scrollProgress.style.setProperty("--scroll-progress", progress.toString());
+  };
+
+  updateScrollProgress();
+  window.addEventListener(
+    "scroll",
+    () => requestAnimationFrame(updateScrollProgress),
+    {
+      passive: true,
+    }
+  );
+
+  // Reveal animations (motion system)
   if (!prefersReducedMotion) {
-    const revealObserver = new IntersectionObserver(
+    const observedMotionElements = new WeakSet();
+    const isElementVisible = (element) => {
+      const rect = element.getBoundingClientRect();
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+      return (
+        rect.top <= viewportHeight * 0.9 && rect.bottom >= viewportHeight * -0.1
+      );
+    };
+
+    const motionObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-visible");
-            revealObserver.unobserve(entry.target);
+            entry.target.classList.add("motion-active");
+            motionObserver.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: 0.15,
-        rootMargin: "0px 0px -10% 0px",
+        threshold: 0.18,
+        rootMargin: "0px 0px -12% 0px",
       }
     );
 
-    animatedElements.forEach((element) => revealObserver.observe(element));
-  } else {
-    animatedElements.forEach((element) =>
-      element.classList.add("animate-visible")
+    const collectMotionElements = () => {
+      document.querySelectorAll("[data-motion]").forEach((element) => {
+        if (observedMotionElements.has(element)) return;
+
+        const { motionDelay, motionDuration, motionEasing } = element.dataset;
+        if (motionDelay) {
+          element.style.setProperty("--motion-delay", `${motionDelay}ms`);
+        }
+        if (motionDuration) {
+          element.style.setProperty("--motion-duration", `${motionDuration}ms`);
+        }
+        if (motionEasing) {
+          element.style.setProperty("--motion-ease", motionEasing);
+        }
+
+        motionObserver.observe(element);
+        observedMotionElements.add(element);
+      });
+    };
+
+    collectMotionElements();
+
+    const activateVisibleElements = () => {
+      collectMotionElements();
+      document.querySelectorAll("[data-motion]").forEach((element) => {
+        if (element.classList.contains("motion-active")) return;
+        if (isElementVisible(element)) {
+          element.classList.add("motion-active");
+          motionObserver.unobserve(element);
+        }
+      });
+    };
+
+    requestAnimationFrame(activateVisibleElements);
+    window.addEventListener(
+      "load",
+      () => requestAnimationFrame(activateVisibleElements),
+      {
+        once: true,
+      }
     );
+  } else {
+    document
+      .querySelectorAll("[data-motion]")
+      .forEach((element) => element.classList.add("motion-active"));
   }
 
   // Tilt effect for cards

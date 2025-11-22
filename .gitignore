@@ -29,8 +29,5 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Generated files - do not commit
-public/static/style.css
-
 # misc
 .DS_Store

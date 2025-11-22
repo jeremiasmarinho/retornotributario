@@ -38,19 +38,20 @@ webapp/
 webapp/
 ├── src/
 │   ├── index.tsx
-│   ├── renderer.tsx          ← linkava /static/style.css ✅
-│   ├── style.css             ✅ REMOVIDO
+│   ├── renderer.tsx          ← legado (manter para referência)
+│   ├── main.tsx              ✅ Entry React
+│   ├── App.tsx               ✅ Composição principal
 │   ├── styles/
-│   │   └── tailwind.css      ← FONTE DE VERDADE
+│   │   └── main.css          ← FONTE DE VERDADE
 │   ├── sections/
 │   │   └── HeroSection.tsx   (apenas classes Tailwind)
 │   └── ...
 │
 ├── public/
 │   └── static/
-│       └── style.css         (Gerado - read-only)
+│       └── script.js         (efeitos visuais)
 │
-├── tailwind.config.js        ← Configuração única
+├── tailwind.config.ts        ← Configuração única (TS)
 ├── postcss.config.js         ← Configuração única
 ├── package.json              ← Scripts funcionando
 ├── ESTRUTURA_DO_PROJETO.md   ✅ NOVO
@@ -88,44 +89,39 @@ webapp/
 ❌ DELETADO
 ```
 
-**Por quê?** O arquivo `src/styles/tailwind.css` já existia e era o correto.
+**Por quê?** O arquivo `src/styles/main.css` passou a ser a única fonte de estilos Tailwind.
 
 ---
 
-### 2. Arquivo `src/renderer.tsx`
+### 2. Arquivo `src/main.tsx`
 
-**Antes:**
-
-```tsx
-<link href="/src/style.css" rel="stylesheet" />
-```
+**Antes:** inexistente (aplicação renderizada via Hono)
 
 **Depois:**
 
 ```tsx
-<link href="/static/style.css" rel="stylesheet" />
+import "./styles/main.css";
+import { App } from "./App";
+
+ReactDOM.createRoot(root).render(<App />);
 ```
 
-**Por quê?** Link correto para o CSS gerado pelo build.
+**Por quê?** Centraliza o bootstrap React e garante que os estilos Tailwind sejam processados pelo Vite.
 
 ---
 
 ### 3. Arquivo `.gitignore`
 
-**Antes:**
-
-```ignore
-# (sem menção a CSS gerado)
-```
+**Antes:** sem ajustes específicos
 
 **Depois:**
 
 ```ignore
-# Generated files - do not commit
-public/static/style.css
+dist/
+node_modules/
 ```
 
-**Por quê?** Evita commitar CSS gerado automaticamente.
+**Por quê?** Mantém artefatos gerados fora do controle de versão.
 
 ---
 
@@ -157,17 +153,15 @@ public/static/style.css
 ```
 CLARO:
 
-1. npm run build:css
+1. npm run build
    ↓
-   src/styles/tailwind.css → public/static/style.css
+   Vite processa React + Tailwind (PostCSS)
 
-2. npm run build
-   ↓
-   (executa build:css + vite build)
+2. dist/ recebe bundles otimizados (.js/.css)
 
-3. public/static/style.css é linkado no HTML
+3. index.html referencia assets gerados automaticamente
    ↓
-   Browser recebe CSS correto e limpo
+   Browser recebe CSS sempre atualizado
 ```
 
 ---
@@ -214,7 +208,7 @@ Todos os 11 componentes:
 | Ação       | Arquivo                   | Status |
 | ---------- | ------------------------- | ------ |
 | Removido   | `src/style.css`           | ✅     |
-| Atualizado | `src/renderer.tsx`        | ✅     |
+| Adicionado | `src/main.tsx`            | ✅     |
 | Atualizado | `.gitignore`              | ✅     |
 | Criado     | `ESTRUTURA_DO_PROJETO.md` | ✅     |
 | Criado     | `PROJETO_LIMPO.md`        | ✅     |
@@ -228,17 +222,17 @@ Todos os 11 componentes:
 
 ✅ **DO's:**
 
-- Edite apenas `src/styles/tailwind.css`
+- Edite apenas `src/styles/main.css`
 - Use classes Tailwind nos componentes
-- Execute `npm run build` antes de commitar
+- Execute `npm run build` e `npm run test`
 - Documente mudanças nos arquivos `.md`
 
 ❌ **DON'Ts:**
 
-- Não edite `public/static/style.css`
+- Não recrie pipeline manual de CSS
 - Não crie novos arquivos `.css`
 - Não use inline styles (exceto CSS variables)
-- Não commite `public/static/style.css`
+- Não commite artefatos de `dist/`
 
 ---
 
@@ -246,5 +240,5 @@ Todos os 11 componentes:
 
 ---
 
-_Data: 19 de Novembro de 2025_  
+_Data: 20 de Novembro de 2025_  
 _Status: 🟢 COMPLETO_

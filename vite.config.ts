@@ -11,4 +11,9 @@ export default defineConfig({
     sourcemap: false,
   },
   publicDir: "public",
+  test: {
+    environment: "jsdom",
+    setupFiles: "./src/test/setup.ts",
+    globals: true,
+  },
 });

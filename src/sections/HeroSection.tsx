@@ -109,7 +109,11 @@ export const HeroSection = () => (
     </div>
 
     <div className="mx-auto grid max-w-6xl gap-12 px-6 pt-32 lg:grid-cols-2">
-      <div className="hero-text parallax-item space-y-6">
+      <div
+        className="hero-text parallax-item space-y-6"
+        data-motion="fade-up"
+        data-motion-duration="880"
+      >
         <p className="eyebrow text-sm uppercase tracking-[0.3em] text-amber-300">
           Inteligência tributária orientada a performance
         </p>
@@ -124,7 +128,11 @@ export const HeroSection = () => (
           reduzir a carga efetiva e acelerar fluxo de caixa — com validação
           jurídica e apresentação executiva pronta para o board.
         </p>
-        <div className="hero-cta flex flex-wrap gap-3">
+        <div
+          className="hero-cta flex flex-wrap gap-3"
+          data-motion="fade-up"
+          data-motion-delay="140"
+        >
           <a href="#contato" className="btn-primary btn-glow" data-ripple>
             <i className="fas fa-magnifying-glass-dollar"></i>
             Receber análise inicial
@@ -136,8 +144,16 @@ export const HeroSection = () => (
         </div>
       </div>
 
-      <div className="hero-media parallax-item relative flex flex-col gap-6">
-        <div className="hero-photo primary tilt-card overflow-hidden rounded-[32px] border border-white/10 bg-white/5 shadow-2xl">
+      <div
+        className="hero-media parallax-item relative flex flex-col gap-6"
+        data-motion="fade-left"
+        data-motion-duration="900"
+      >
+        <div
+          className="hero-photo primary tilt-card overflow-hidden rounded-[32px] border border-white/10 bg-white/5 shadow-2xl"
+          data-motion="zoom-in"
+          data-motion-delay="120"
+        >
           <img
             src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80"
             alt="Especialista em tributos apresentando resultados"
@@ -146,7 +162,11 @@ export const HeroSection = () => (
             className="h-full w-full object-cover"
           />
         </div>
-        <div className="hero-photo secondary tilt-card relative -mt-24 w-2/3 self-end overflow-hidden rounded-[24px] border border-white/10 bg-white/5 shadow-xl">
+        <div
+          className="hero-photo secondary tilt-card relative -mt-24 w-2/3 self-end overflow-hidden rounded-[24px] border border-white/10 bg-white/5 shadow-xl"
+          data-motion="zoom-in"
+          data-motion-delay="220"
+        >
           <img
             src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=600&q=80"
             alt="Equipe analisando documentação fiscal"
@@ -155,13 +175,21 @@ export const HeroSection = () => (
             className="h-full w-full object-cover"
           />
         </div>
-        <div className="floating-card parallax-item absolute -bottom-10 -left-6 w-60 glass-panel p-5 text-sm text-white/80">
+        <div
+          className="floating-card parallax-item absolute -bottom-10 -left-6 w-60 glass-panel p-5 text-sm text-white/80"
+          data-motion="lift"
+          data-motion-delay="320"
+        >
           <p className="text-xs uppercase tracking-[0.3em] text-amber-200">
             A sua empresa
           </p>
           <p className="mt-2 text-lg font-semibold text-white">Em boas mãos</p>
         </div>
-        <div className="floating-card secondary parallax-item absolute -top-6 right-4 flex w-48 items-center gap-3 glass-panel p-4 text-white/80">
+        <div
+          className="floating-card secondary parallax-item absolute -top-6 right-4 flex w-48 items-center gap-3 glass-panel p-4 text-white/80"
+          data-motion="lift"
+          data-motion-delay="360"
+        >
           <i className="fas fa-shield text-amber-300"></i>
           <p className="text-sm">Compliance liberado</p>
         </div>
@@ -170,10 +198,12 @@ export const HeroSection = () => (
 
     <div className="hero-metrics mt-16 border-t border-white/10 bg-white/5/10 py-12 backdrop-blur">
       <div className="mx-auto grid max-w-6xl gap-6 px-6 sm:grid-cols-2 lg:grid-cols-4">
-        {heroHighlights.map((highlight) => (
+        {heroHighlights.map((highlight, index) => (
           <div
             className="metric-card tilt-card glass-panel border-glow p-6 text-left text-white"
             key={highlight.label}
+            data-motion="fade-up"
+            data-motion-delay={index * 90 + 120}
           >
             <i className={`fas ${highlight.icon} text-2xl text-amber-300`}></i>
             <strong className="mt-3 block text-2xl font-semibold">

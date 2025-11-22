@@ -4,8 +4,12 @@ export const AboutSection = () => (
     className="section section-soft bg-gray-900/40 py-20"
   >
     <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-2">
-      <div className="story-card tilt-card glass-panel p-8">
-        <div className="section-header compact">
+      <div
+        className="story-card tilt-card glass-panel p-8"
+        data-motion="fade-up"
+        data-motion-duration="760"
+      >
+        <div className="section-header compact" data-motion="fade-up">
           <span className="section-tag text-sm uppercase tracking-[0.4em] text-amber-300">
             Quem somos
           </span>
@@ -19,19 +23,31 @@ export const AboutSection = () => (
           </p>
         </div>
         <ul className="icon-list mt-6 space-y-3 text-sm text-white/80">
-          <li className="flex items-start gap-3">
+          <li
+            className="flex items-start gap-3"
+            data-motion="fade-up"
+            data-motion-delay="140"
+          >
             <i className="fas fa-check-circle text-amber-300"></i>
             <span>
               Cobertura nacional com células especializadas por setor.
             </span>
           </li>
-          <li className="flex items-start gap-3">
+          <li
+            className="flex items-start gap-3"
+            data-motion="fade-up"
+            data-motion-delay="220"
+          >
             <i className="fas fa-check-circle text-amber-300"></i>
             <span>
               Framework documentado que reduz risco de autuação e retrabalho.
             </span>
           </li>
-          <li className="flex items-start gap-3">
+          <li
+            className="flex items-start gap-3"
+            data-motion="fade-up"
+            data-motion-delay="300"
+          >
             <i className="fas fa-check-circle text-amber-300"></i>
             <span>
               Formato flexível: presença estratégica e execução remota
@@ -41,7 +57,11 @@ export const AboutSection = () => (
         </ul>
       </div>
 
-      <div className="photo-card tilt-card relative overflow-hidden glass-panel">
+      <div
+        className="photo-card tilt-card relative overflow-hidden glass-panel"
+        data-motion="zoom-in"
+        data-motion-delay="180"
+      >
         <img
           src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=80"
           alt="Sala de reunião moderna com documentos fiscais"

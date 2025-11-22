@@ -1,11 +1,9 @@
 import { galleryImages } from "../content/data";
 
 export const GallerySection = () => (
-  <section
-    className="section section-gallery bg-gray-900 py-20"
-  >
+  <section className="section section-gallery bg-gray-900 py-20">
     <div className="mx-auto max-w-6xl px-6">
-      <div className="section-header text-center">
+      <div className="section-header text-center" data-motion="fade-up">
         <span className="section-tag text-sm uppercase tracking-[0.4em] text-amber-300">
           Bastidores
         </span>
@@ -13,14 +11,17 @@ export const GallerySection = () => (
           Como estruturamos e executamos cada projeto
         </h2>
         <p className="section-subtitle text-white/70">
-          Transparência operacional reforça confiança e acelera aprovações internas.
+          Transparência operacional reforça confiança e acelera aprovações
+          internas.
         </p>
       </div>
       <div className="gallery-grid grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {galleryImages.map((image) => (
+        {galleryImages.map((image, index) => (
           <article
             className="gallery-card tilt-card group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 shadow-xl"
             key={image.caption}
+            data-motion="fade-up"
+            data-motion-delay={index * 80 + 140}
           >
             <img
               src={image.src}

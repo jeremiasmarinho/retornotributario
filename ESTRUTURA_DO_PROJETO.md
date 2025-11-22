@@ -11,11 +11,10 @@ O projeto foi refatorado para estar **100% em TypeScript** com **Tailwind CSS** 
 ```
 webapp/
 ├── src/
-│   ├── index.tsx              # Arquivo principal - Importa e renderiza todos os componentes
-│   ├── renderer.tsx           # Configuração do renderer Hono com meta tags e links
-│   ├── style.css              # ❌ REMOVIDO - Não usar
-│   ├── styles/
-│   │   └── tailwind.css       # ✅ FONTE DE VERDADE - Definições do Tailwind + customizações
+│   ├── main.tsx               # Entry React + bootstrap do App
+│   ├── App.tsx                # Composição das seções da landing
+│   ├── index.tsx              # (Legado) handler Hono – manter para referência
+│   ├── renderer.tsx           # (Legado) renderer Hono
 │   ├── sections/              # Componentes da página
 │   │   ├── HeroSection.tsx
 │   │   ├── AboutSection.tsx
@@ -28,20 +27,22 @@ webapp/
 │   │   ├── CtaSection.tsx
 │   │   ├── ContactSection.tsx
 │   │   ├── FooterSection.tsx
-│   │   └── index.ts           # Exportação centralizada de componentes
-│   └── content/
-│       └── data.ts            # Dados e conteúdo centralizado
+│   │   └── index.ts           # Exportação centralizada
+│   ├── styles/
+│   │   └── main.css           # ✅ Fonte de verdade das camadas Tailwind
+│   ├── content/               # Conteúdo estruturado
+│   │   └── data.ts
+│   ├── __tests__/             # Testes Vitest
+│   └── test/                  # Setup de testes
 ├── public/
-│   ├── static/
-│   │   ├── style.css          # ❌ GERADO AUTOMATICAMENTE - Não editar!
-│   │   └── script.js          # Scripts JavaScript customizados
-│   └── logo.png               # Logo da marca
-├── tailwind.config.js         # Configuração do Tailwind (cores, fonts, etc)
-├── postcss.config.js          # Configuração do PostCSS
-├── vite.config.ts             # Configuração do Vite
-├── tsconfig.json              # Configuração do TypeScript
+│   └── static/
+│       └── script.js          # Scripts JavaScript customizados
+├── tailwind.config.ts         # Configuração Tailwind (TS)
+├── postcss.config.js          # Configuração PostCSS
+├── vite.config.ts             # Configuração Vite
+├── tsconfig.json              # Configuração TypeScript
 ├── package.json               # Dependências e scripts
-└── .gitignore                 # ✅ ATUALIZADO - Inclui public/static/style.css
+└── .gitignore                 # Ignora dist/ e node_modules/
 ```
 
 ---
@@ -50,7 +51,7 @@ webapp/
 
 ### ✅ Correto - USAR APENAS
 
-**Arquivo Principal:** `src/styles/tailwind.css`
+**Arquivo Principal:** `src/styles/main.css`
 
 Este arquivo contém:
 
@@ -68,15 +69,13 @@ Este arquivo contém:
 ### 🔄 Fluxo de Build de CSS
 
 ```
-src/styles/tailwind.css
-    ↓
-(npm run build:css)
-    ↓
-public/static/style.css (GERADO)
-    ↓
-(linkado no renderer.tsx)
-    ↓
-Browser
+src/styles/main.css
+  ↓
+(importado em src/main.tsx)
+  ↓
+Vite + PostCSS (dev/build)
+  ↓
+Dist bundle otimizado
 ```
 
 ---
@@ -127,24 +126,21 @@ export const HeroSection = () => (
 npm run dev                # Inicia servidor dev (Vite)
 
 # Build
-npm run build:css          # Gera CSS do Tailwind (automático)
-npm run build              # Build completo (CSS + Vite)
+npm run build              # Build completo (Vite + Tailwind integrados)
 
 # Preview
 npm run preview            # Preview do build em produção
 
-# Deploy
-npm run deploy             # Deploy para Cloudflare Pages
-
-# TypeScript
-npm run cf-typegen         # Gera tipos do Cloudflare
+# Tests
+npm run test               # Testes unitários (Vitest)
+npm run test:watch         # Testes em watch mode
 ```
 
 ---
 
 ## ⚙️ Configurações Importantes
 
-### `tailwind.config.js`
+### `tailwind.config.ts`
 
 - Define cores customizadas (brand.gold, brand.black, etc)
 - Define fontes (Poppins, Roboto)
@@ -159,7 +155,7 @@ npm run cf-typegen         # Gera tipos do Cloudflare
 ### `renderer.tsx`
 
 - Configura o HTML base
-- Importa `public/static/style.css` gerado
+- Renderiza markup base quando usado no modo Hono legado
 - Define meta tags e fonts do Google
 
 ---
@@ -168,7 +164,7 @@ npm run cf-typegen         # Gera tipos do Cloudflare
 
 ### Adicionar uma classe customizada reutilizável:
 
-**Em `src/styles/tailwind.css` (na seção `@layer components`):**
+**Em `src/styles/main.css` (na seção `@layer components`):**
 
 ```css
 @layer components {
@@ -199,7 +195,7 @@ npm run cf-typegen         # Gera tipos do Cloudflare
 Antes de fazer commit, verifique:
 
 - [ ] Todos os arquivos `.tsx` existem em `src/sections/` ou `src/`
-- [ ] Nenhum arquivo CSS solto fora de `src/styles/tailwind.css`
+- [ ] Nenhum arquivo CSS solto fora de `src/styles/main.css`
 - [ ] Nenhum `style.css` em `src/`
 - [ ] Nenhum arquivo `.scss` ou `.less`
 - [ ] Nenhum inline style com cores hardcoded (usar classes Tailwind)
@@ -214,8 +210,8 @@ Antes de fazer commit, verifique:
 ### Se as classes Tailwind não aparecem:
 
 1. Verifique se o arquivo está em `src/`
-2. Verifique se a classe existe em `tailwind.config.js`
-3. Execute: `npm run build:css`
+2. Verifique se a classe existe em `tailwind.config.ts`
+3. Execute: `npm run build`
 4. Limpe o cache do navegador (Ctrl+Shift+R)
 
 ### Se há conflitos de CSS:
@@ -234,5 +230,5 @@ Antes de fazer commit, verifique:
 
 ---
 
-**Última atualização:** 19 de Novembro de 2025
+**Última atualização:** 20 de Novembro de 2025
 **Status:** ✅ Projeto limpo e otimizado

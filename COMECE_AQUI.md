@@ -28,8 +28,8 @@
 
 ```
 ❌ REMOVIDO: src/style.css (conflitava)
-✅ MANTÉM:   src/styles/tailwind.css (fonte única)
-✅ GERADO:   public/static/style.css (build automático)
+✅ MANTÉM:   src/styles/main.css (fonte única)
+✅ GERADO:   dist/assets/*.css (via Vite/PostCSS)
 ```
 
 ### 3. ✅ Validação TypeScript
@@ -64,15 +64,14 @@ $ npm run build
 ### ✏️ EDITE
 
 ```
-✅ src/styles/tailwind.css       ← Adicione estilos aqui
+✅ src/styles/main.css           ← Adicione estilos aqui
 ✅ src/sections/*.tsx             ← Modifique componentes
-✅ tailwind.config.js             ← Configure cores/fonts
+✅ tailwind.config.ts             ← Configure cores/fonts
 ```
 
 ### 🔒 NÃO EDITE (gerados)
 
 ```
-❌ public/static/style.css        ← Gerado por build
 ❌ dist/                          ← Gerado por vite
 ❌ node_modules/                  ← Instalado por npm
 ```
@@ -117,7 +116,7 @@ npm run dev
 ### Adicionar Estilos
 
 ```css
-/* Em src/styles/tailwind.css */
+/* Em src/styles/main.css */
 @layer components {
   .meu-estilo {
     @apply flex gap-4 p-4 rounded-lg;
@@ -146,27 +145,16 @@ npm run deploy
 │                   npm run dev                            │
 │                       ↓                                  │
 │  ┌─────────────────────────────────────────────────┐    │
-│  │ src/styles/tailwind.css (hotreload)             │    │
+│  │ src/styles/main.css (hotreload)                 │    │
 │  └─────────────────────────────────────────────────┘    │
 │                       ↓                                  │
-│              public/static/style.css                    │
-│                       ↓                                  │
-│                 Browser (auto-refresh)                  │
-└─────────────────────────────────────────────────────────┘
-
-┌─────────────────────────────────────────────────────────┐
-│              npm run build:css                           │
-│                       ↓                                  │
-│  src/styles/tailwind.css → public/static/style.css     │
-│                       ↓                                  │
-│         (minified & optimized para produção)           │
+│                Browser (auto-refresh)                   │
 └─────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────┐
 │               npm run build                              │
 │                       ↓                                  │
-│  1. build:css (gera CSS)                                │
-│  2. vite build (compila TS/TSX)                         │
+│  Vite compila TS/TSX + Tailwind/PostCSS                 │
 │                       ↓                                  │
 │             dist/ (pronto para deploy)                  │
 └─────────────────────────────────────────────────────────┘
@@ -210,11 +198,11 @@ npm run deploy
 
 ```bash
 # Tudo deve passar:
-✅ npm run build:css   # Compila CSS
 ✅ npm run build       # Build completo
+✅ npm run test        # Testes unitários
 ✅ npm run dev         # Dev server
 ✅ ls src/sections/    # 11 componentes
-✅ cat .gitignore      # Tem public/static/style.css
+✅ cat .gitignore      # Sem arquivos gerados commitados
 ```
 
 ---
@@ -235,15 +223,16 @@ npm run deploy
 
 ### ✅ Faça
 
-- ✅ Edite `src/styles/tailwind.css`
+- ✅ Edite `src/styles/main.css`
 - ✅ Use classes Tailwind nos componentes
 - ✅ Execute `npm run build` antes de commitar
+- ✅ Rode `npm run test` quando alterar lógica crítica
 - ✅ Documente mudanças significativas
 
 ### ❌ Não Faça
 
 - ❌ Crie novo arquivo CSS
-- ❌ Edite `public/static/style.css`
+- ❌ Recrie pipeline manual de CSS
 - ❌ Use inline styles
 - ❌ Commite arquivos gerados
 

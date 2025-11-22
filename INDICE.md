@@ -75,8 +75,8 @@ npm run dev              # Servidor em localhost:5174
 # Build
 npm run build            # Compile para produção
 
-# Deploy
-npm run deploy           # Deploy para Cloudflare Pages
+# Testes
+npm run test             # Executa Vitest
 ```
 
 ---
@@ -89,7 +89,7 @@ npm run deploy           # Deploy para Cloudflare Pages
 
 ### ✅ Mantido
 
-- `src/styles/tailwind.css` - Fonte de verdade
+- `src/styles/main.css` - Fonte de verdade
 - Todos os 11 componentes
 - Build scripts
 - Configurações
@@ -104,18 +104,16 @@ npm run deploy           # Deploy para Cloudflare Pages
 ## 🏗️ Estrutura de Estilos
 
 ```
-src/styles/tailwind.css
-        ↓
-  (npm run build:css)
-        ↓
-public/static/style.css
-        ↓
-     (HTML)
-        ↓
-    Browser
+src/styles/main.css
+  ↓
+(importado por src/main.tsx)
+  ↓
+Vite + Tailwind (dev/build)
+  ↓
+Browser / dist
 ```
 
-**Regra de Ouro:** Edite apenas `src/styles/tailwind.css`
+**Regra de Ouro:** Edite apenas `src/styles/main.css`
 
 ---
 
@@ -157,7 +155,7 @@ public/static/style.css
 
 ### Adicionar um novo estilo reutilizável
 
-1. Abra `src/styles/tailwind.css`
+1. Abra `src/styles/main.css`
 2. Vá para a seção `@layer components`
 3. Adicione:
    ```css
@@ -169,7 +167,7 @@ public/static/style.css
    ```tsx
    <button class="meu-botao">Click</button>
    ```
-5. Execute: `npm run build:css`
+5. Execute: `npm run build`
 6. Pronto! ✨
 
 ---
@@ -186,7 +184,7 @@ Escolha um arquivo acima e comece! Sugestão:
 
 **Projeto:** Retorno Tributário  
 **Status:** 🟢 LIMPO E PRONTO  
-**Data:** 19 de Novembro de 2025
+**Data:** 20 de Novembro de 2025
 
 ---
 

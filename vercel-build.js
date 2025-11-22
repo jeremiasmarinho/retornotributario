@@ -6,13 +6,9 @@ const path = require("path");
 
 console.log("🔨 Building project for Vercel...");
 
-// Build CSS
-console.log("📦 Building CSS...");
-execSync("npm run build:css", { stdio: "inherit" });
-
-// Build Vite
-console.log("⚡ Building with Vite...");
-execSync("vite build", { stdio: "inherit" });
+// Build com Vite (Tailwind integrado ao pipeline)
+console.log("⚡ Building with Vite (PostCSS)...");
+execSync("npm run build", { stdio: "inherit" });
 
 // Ensure dist directory exists
 if (!fs.existsSync("dist")) {

@@ -275,8 +275,8 @@ Documentação:
 - EXEMPLO_PRATICO_EFEITOS.md ........... Exemplos práticos
 
 Arquivos de Código:
-- src/styles/tailwind.css ............... Estilos com efeitos
-- tailwind.config.js ..................... Configuração
+- src/styles/main.css ................. Estilos com efeitos
+- tailwind.config.ts .................. Configuração
 - src/sections/*.tsx ..................... Componentes
 ```
 
@@ -307,9 +307,9 @@ Se quiser mais efeitos, você pode adicionar:
 
 O código está preparado para suportar temas de cores. Basta:
 
-1. Adicionar novas cores ao `tailwind.config.js`
+1. Adicionar novas cores ao `tailwind.config.ts`
 2. Usar em gradientes e shadows
-3. Compilar com `npm run build:css`
+3. Compilar com `npm run build`
 
 ---
 
