@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { navLinks, heroHighlights } from "../content/data";
 
+// Hero Section Component
 export const HeroSection = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
