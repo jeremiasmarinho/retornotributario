@@ -14,7 +14,7 @@ export const HeroSection = () => {
 
   return (
     <section
-      className="hero brand-aurora relative pb-24 pt-20 text-white min-h-screen"
+      className="hero brand-aurora relative pb-24 pt-32 lg:pb-32 lg:pt-40 text-white min-h-screen"
       data-aurora
     >
       <div
@@ -93,14 +93,7 @@ export const HeroSection = () => {
           onClick={closeMobileMenu}
         ></div>
         <div className="drawer-panel">
-          <div className="drawer-header mb-4 flex items-center justify-between">
-            <div className="flex items-center gap-3 text-lg font-semibold">
-              <img
-                src="/logo.png"
-                alt="Retorno Tributário"
-                className="logo-drawer"
-              />
-            </div>
+          <div className="drawer-header mb-4 flex items-center justify-end">
             <button
               className="mobile-close h-10 w-10 rounded-full border border-white/20 text-white"
               type="button"
@@ -146,12 +139,12 @@ export const HeroSection = () => {
           data-motion="fade-up"
           data-motion-duration="880"
         >
-          <p className="eyebrow text-sm uppercase tracking-[0.3em] text-amber-300">
+          <p className="eyebrow text-sm uppercase tracking-[0.4em] text-amber-300">
             Inteligência tributária orientada a performance
           </p>
           <h1
             data-sparkline
-            className="text-4xl font-semibold leading-tight text-white md:text-5xl"
+            className="text-5xl font-semibold leading-tight text-white md:text-6xl"
           >
             Liberamos caixa tributário com método, evidências e segurança.
           </h1>

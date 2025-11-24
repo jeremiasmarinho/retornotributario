@@ -3,9 +3,9 @@ import { partners } from "../content/data";
 export const AboutSection = () => (
   <section
     id="quem-somos"
-    className="section section-soft bg-gray-900/40 py-20"
+    className="section section-soft bg-gray-900/40 py-24 lg:py-32"
   >
-    <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-2">
+    <div className="mx-auto grid max-w-6xl gap-12 lg:gap-20 px-6 lg:grid-cols-2">
       <div
         className="story-card tilt-card glass-panel p-8"
         data-motion="fade-up"
@@ -15,7 +15,7 @@ export const AboutSection = () => (
           <span className="section-tag text-sm uppercase tracking-[0.4em] text-amber-300">
             Quem somos
           </span>
-          <h2 className="text-3xl font-semibold text-white">
+          <h2 className="text-4xl font-semibold text-white">
             Consultoria tributária especializada em projetos de alto impacto
           </h2>
           <p className="section-subtitle text-base text-white/70">

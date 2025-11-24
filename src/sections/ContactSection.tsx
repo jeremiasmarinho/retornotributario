@@ -3,9 +3,9 @@ import { contactMethods } from "../content/data";
 export const ContactSection = () => (
   <section
     id="contato"
-    className="section section-contact bg-gradient-to-br from-gray-950 to-gray-900 py-20"
+    className="section section-contact bg-gradient-to-br from-gray-950 to-gray-900 py-24 lg:py-32"
   >
-    <div className="mx-auto grid max-w-6xl gap-8 px-6 lg:grid-cols-2">
+    <div className="mx-auto grid max-w-6xl gap-12 lg:gap-20 px-6 lg:grid-cols-2">
       <div
         className="contact-card flexible tilt-card glass-panel p-8"
         data-motion="fade-up"
@@ -18,7 +18,7 @@ export const ContactSection = () => (
           <span className="section-tag text-sm uppercase tracking-[0.4em] text-amber-300">
             Contato
           </span>
-          <h2 className="text-3xl font-semibold text-white">
+          <h2 className="text-4xl font-semibold text-white">
             Descreva seu contexto tributário e receba uma pré-avaliação
             estruturada.
           </h2>
@@ -37,7 +37,7 @@ export const ContactSection = () => (
             >
               <i className={`fas ${method.icon} text-amber-300`}></i>
               <div>
-                <strong className="text-white">{method.title}</strong>
+                <strong className="text-base text-white">{method.title}</strong>
                 <span className="block text-sm text-white/70">
                   {method.value}
                 </span>
@@ -49,7 +49,7 @@ export const ContactSection = () => (
           ))}
         </div>
         <div
-          className="cta-note mt-6 flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-white/60"
+          className="cta-note mt-6 flex items-center gap-2 text-xs uppercase tracking-[0.4em] text-white/60"
           data-motion="fade-up"
           data-motion-delay="520"
         >
@@ -70,7 +70,7 @@ export const ContactSection = () => (
           <span className="section-tag text-sm uppercase tracking-[0.4em] text-amber-300">
             Lead
           </span>
-          <h3 className="text-2xl font-semibold text-white">
+          <h3 className="text-3xl font-semibold text-white">
             Solicitar avaliação preliminar
           </h3>
           <p className="text-sm text-white/70 mt-2">

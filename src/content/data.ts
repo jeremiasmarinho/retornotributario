@@ -134,28 +134,48 @@ export const resultMetrics = [
 
 export const teses = [
   {
-    title: "Exclusão do ICMS da base de PIS/COFINS",
+    title: "Exclusão do ICMS da base do PIS e COFINS",
     description:
-      "Estruturação completa de pedidos administrativos com controles para não gerar passivos.",
-    tag: "Leading case",
+      "A maior oportunidade tributária das últimas décadas, com repercussão geral decidida pelo STF (Tema 69).",
+    tag: "Tese do Século",
   },
   {
-    title: "Créditos de insumos e despesas essenciais",
+    title: "Exclusão do ICMS-ST da base do PIS e COFINS",
     description:
-      "Interpretamos o conceito de essencialidade com laudos técnicos e pareceres econômicos.",
+      "Recuperação de valores para empresas que comercializam produtos sujeitos à substituição tributária.",
+    tag: "Varejo e Atacado",
+  },
+  {
+    title: "Exclusão do ISS da base do PIS e COFINS",
+    description:
+      "Aplicação analógica da tese do ICMS para prestadores de serviços, excluindo o imposto municipal da base federal.",
+    tag: "Serviços",
+  },
+  {
+    title: "Créditos de PIS/COFINS sobre insumos",
+    description:
+      "Ampliação do conceito de insumos conforme decisão do STJ, permitindo creditamento sobre despesas essenciais à atividade.",
+    tag: "Essencialidade",
+  },
+  {
+    title:
+      "Exclusão dos créditos presumidos de ICMS da base de cálculo do IRPJ e da CSLL",
+    description:
+      "Vedação da tributação federal sobre incentivos estaduais, preservando o pacto federativo.",
+    tag: "Benefícios Fiscais",
+  },
+  {
+    title:
+      "Juros sobre capital próprio (JCP) - dedução da base de cálculo do IRPJ e da CSLL",
+    description:
+      "Otimização fiscal através da remuneração de sócios via JCP, dedutível para a empresa.",
     tag: "Planejamento",
   },
   {
-    title: "Revisão de INSS sobre verbas indenizatórias",
+    title: "INSS sobre verbas indenizatórias",
     description:
-      "Separação das verbas salariais e não salariais com suporte documental para auditorias.",
-    tag: "Compliance",
-  },
-  {
-    title: "Teses específicas por setor",
-    description:
-      "Energia, saúde, logística, agronegócio e tecnologia contam com trilhas dedicadas.",
-    tag: "Sob medida",
+      "Afastamento da incidência previdenciária sobre verbas de caráter não remuneratório (aviso prévio, terço de férias, etc).",
+    tag: "Folha de Pagamento",
   },
 ] as const;
 

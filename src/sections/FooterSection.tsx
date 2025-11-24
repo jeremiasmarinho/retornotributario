@@ -1,7 +1,7 @@
 import { navLinks } from "../content/data";
 
 export const FooterSection = () => (
-  <footer className="footer bg-gray-950 py-16 text-white/70">
+  <footer className="footer bg-gray-950 py-20 lg:py-24 text-white/70">
     <div className="mx-auto max-w-6xl px-6">
       <div className="footer-content grid gap-8 border-b border-white/10 pb-10 md:grid-cols-3">
         <div className="footer-brand space-y-3">
@@ -48,7 +48,7 @@ export const FooterSection = () => (
           </p>
         </div>
       </div>
-      <div className="footer-bottom pt-8 text-center text-xs uppercase tracking-[0.3em] text-white/50">
+      <div className="footer-bottom pt-8 text-center text-sm uppercase tracking-[0.3em] text-white/50">
         &copy; {new Date().getFullYear()} Retorno Tributário. Todos os direitos
         reservados.
       </div>

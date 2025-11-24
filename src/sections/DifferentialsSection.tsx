@@ -1,21 +1,21 @@
 import { differentiators } from "../content/data";
 
 export const DifferentialsSection = () => (
-  <section id="diferenciais" className="section bg-gray-950 py-20">
+  <section id="diferenciais" className="section bg-gray-950 py-24 lg:py-32">
     <div className="mx-auto max-w-6xl px-6">
       <div className="section-header text-center" data-motion="fade-up">
         <span className="section-tag text-sm uppercase tracking-[0.4em] text-amber-300">
           Diferenciais
         </span>
-        <h2 className="text-3xl font-semibold text-white">
+        <h2 className="text-4xl font-semibold text-white">
           Diferenciais que aceleram aprovação e execução
         </h2>
-        <p className="section-subtitle text-white/70">
+        <p className="section-subtitle text-base text-white/70">
           Estrutura técnica clara, visual executivo e controles que facilitam
           decisão.
         </p>
       </div>
-      <div className="features-grid grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="features-grid grid gap-8 lg:gap-10 sm:grid-cols-2 lg:grid-cols-4">
         {differentiators.map((item, index) => (
           <div
             className="feature-card tilt-card glass-panel border-glow p-6 text-white/80"
